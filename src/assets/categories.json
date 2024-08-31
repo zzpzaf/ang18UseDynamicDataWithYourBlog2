@@ -1,0 +1,22 @@
+[
+    {
+      "categoryId": 1,
+      "categoryTitle": "AI-DS"
+    },
+    {
+      "categoryId": 2,
+      "categoryTitle": "APIs"
+    },
+    {
+      "categoryId": 3,
+      "categoryTitle": "SOLID"
+    },
+    {
+      "categoryId": 4,
+      "categoryTitle": "SCRUM"
+    },
+    {
+      "categoryId": 5,
+      "categoryTitle": "Microservices"
+    }
+  ]

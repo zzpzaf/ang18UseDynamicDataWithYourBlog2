@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
+import { ContentService } from '../content.service';
+import { ICategory } from '../dbObjects/blogObjects';
 
 
 export interface IArticle {
@@ -24,6 +26,20 @@ export interface IArticle {
 })
 export class LeftpaneComponent {
 
+  constructor() {
+    effect(() => {
+      if (this.contentService.$category().categoryId > 0) {
+        this.category = this.contentService.$category();
+        // console.log('>===>> ' + this.componentName + ' - Category Changed/Received:', this.category.categoryTitle);
+      }
+    });
+  }
+
+  private contentService = inject(ContentService);
+
+  componentName = this.constructor.name.replace('_', '');
+
+  category: ICategory = {categoryId: 0, categoryTitle: ''};
   selectedItem: number | null = null;
   listItems: IArticle[] = [
     {articleId: 1, articleTitle: 'Article 1'},

@@ -1,7 +1,7 @@
 <!-- <p>leftpane works!</p> -->
 <mat-card class="matlist" appearance="outlined">
   <mat-card-header>
-    <mat-card-title>Articles</mat-card-title>
+    <mat-card-title>{{category.categoryId > 0 ? category.categoryTitle: 'Articles'}}</mat-card-title>
   </mat-card-header>
   <!-- <mat-divider></mat-divider> -->
   <mat-card-content>
@@ -24,8 +24,6 @@
   <!-- <mat-divider></mat-divider> -->
   <div>
   <mat-card-footer >
-    <!-- <button (click)="addArticle()">Add Article</button> -->
-    <!-- {{listItems[selectedItem].articleTitle}} -->
     {{
       selectedItem !== null
         ? listItems[selectedItem].articleTitle
