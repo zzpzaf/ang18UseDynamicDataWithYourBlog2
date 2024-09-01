@@ -6,7 +6,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ContentService } from '../content.service';
 import { ICategory } from '../dbObjects/blogObjects';
 
-
 export interface IArticle {
   articleId: number;
   articleTitle: string;
@@ -31,6 +30,8 @@ export class LeftpaneComponent {
       if (this.contentService.$category().categoryId > 0) {
         this.category = this.contentService.$category();
         // console.log('>===>> ' + this.componentName + ' - Category Changed/Received:', this.category.categoryTitle);
+        this.listItems = this.contentService.$categoryArticles();
+        this.selectedItem = 0;
       }
     });
   }
@@ -41,22 +42,11 @@ export class LeftpaneComponent {
 
   category: ICategory = {categoryId: 0, categoryTitle: ''};
   selectedItem: number | null = null;
-  listItems: IArticle[] = [
-    {articleId: 1, articleTitle: 'Article 1'},
-    {articleId: 2, articleTitle: 'Article 2'},
-    {articleId: 3, articleTitle: 'Article 3'},
-    {articleId: 4, articleTitle: 'Article 4'},
-    {articleId: 5, articleTitle: 'Article 5'},
-  ]; 
-
-
+  listItems: IArticle[] = []; 
 
   itemClicked(item: IArticle, i: number): void {
     this.selectedItem = i;
-    // this.contentService.updateArticleLikes(item.articleId, 'views');
+    this.contentService.signalArticle(item.articleId);
   }
-
-
-
 
 }
