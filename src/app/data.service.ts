@@ -12,19 +12,41 @@ export class DataService {
   private http = inject(HttpClient);
 
   componentName = this.constructor.name.replace('_', '');
-  baseURL: string = '/assets/';
+  // baseURL: string = '/assets/';
+  baseURL: string = 'http://localhost:8080/blogapi/';
 
   getCategories(): Observable<ICategory[]> {
     return this.http
-      .get<ICategory[]>(this.baseURL + `categories.json`)
+      .get<ICategory[]>(this.baseURL + `categories`)    // (this.baseURL + `categories.json`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getArticles(): Observable<IArticle[]> {
+  getCategory(categoryId: number): Observable<ICategory> {
     return this.http
-      .get<IArticle[]>(this.baseURL + `articles.json`)
+      .get<ICategory>(this.baseURL + `categories` + '/categoryId/' + categoryId)       
       .pipe(retry(1), catchError(this.handleError));
   }
+  
+
+  getArticles(): Observable<IArticle[]> {
+    return this.http
+      .get<IArticle[]>(this.baseURL + `articles`)       // (this.baseURL + `articles.json`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getCategoryArticles(categoryId: number): Observable<IArticle[]> {
+    return this.http
+    .get<IArticle[]>(this.baseURL + `articles` + '/categoryId/' + categoryId)       
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getArticle(articleId: number): Observable<IArticle> {
+    return this.http
+      .get<IArticle>(this.baseURL + `articles` + '/articleId/' + articleId)       
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+
 
   // Error handling
   handleError(error: any) {

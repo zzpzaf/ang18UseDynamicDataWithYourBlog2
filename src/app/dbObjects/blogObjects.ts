@@ -8,6 +8,7 @@ export interface IArticle {
     articleId: number;
     categoryId: number;
     articleTitle: string;
+    articleSubTitle: string;
     articleContent: string;
 }
   

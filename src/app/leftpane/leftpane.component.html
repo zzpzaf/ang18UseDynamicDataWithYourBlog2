@@ -1,6 +1,8 @@
 <mat-card class="matlist" appearance="outlined">
   <mat-card-header>
-    <mat-card-title>{{category.categoryId > 0 ? category.categoryTitle: 'Articles'}}</mat-card-title>
+    <mat-card-title>{{
+      category.categoryId > 0 ? category.categoryTitle : "Articles"
+    }}</mat-card-title>
   </mat-card-header>
   <!-- <mat-divider></mat-divider> -->
   <mat-card-content>
@@ -22,12 +24,12 @@
   </mat-card-content>
   <!-- <mat-divider></mat-divider> -->
   <div>
-  <mat-card-footer >
-    {{
-      selectedItem !== null
-        ? listItems[selectedItem].articleTitle
-        : "No article selected"
-    }}
-  </mat-card-footer>
-</div>
+    <mat-card-footer>
+      {{
+        selectedItem !== null && listItems.length > 0
+          ? listItems[selectedItem].articleTitle
+          : "No article selected"
+      }}
+    </mat-card-footer>
+  </div>
 </mat-card>

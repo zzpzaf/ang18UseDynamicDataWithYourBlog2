@@ -22,5 +22,5 @@ export class MainComponent {
 
   private contentService = inject(ContentService);
 
-  public article: IArticle = {articleId: 0, categoryId: 0, articleTitle: '', articleContent:  ''};
+  public article: IArticle = {articleId: 0, categoryId: 0, articleTitle: '', articleSubTitle: '', articleContent:  ''};
 }

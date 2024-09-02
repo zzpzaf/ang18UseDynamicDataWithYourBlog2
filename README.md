@@ -1,10 +1,21 @@
 # ang18UseDynamicDataWithYourBlog1
 
-### An Angular example project on using dynamic data with your blog
+### An Angular example project on using dynamic data for your blog
 
-This project is based on the previous repo:
+It is actually a sequel of the previous repo:
 [Angular — Use Tiles to implement a Holy-Grail layout for your blog](https://github.com/zzpzaf/ang18MaterialTilesHoly1)
 
+This project uses as backend the project: [blogbackdemo1](https://github.com/zzpzaf/blogbackdemo1)
+
+
+
+
+
+
+
+
+
+---
 <!-- Below, is the project's output:
 ![Angular-holy-grail-mat-grid-list](https://github.com/user-attachments/assets/5a8dc394-7945-4850-9129-2934d1ebdcd8) -->
 
