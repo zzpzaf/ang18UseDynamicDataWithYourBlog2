@@ -18,6 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HeaderComponent {
 
-  headerTitle = 'Angular18 - A Holy-Grail layout Implementation, based on Material Grid List';
+  headerTitle = 'Angular18 - A simple blog implementation';
 
 }

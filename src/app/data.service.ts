@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { IArticle, ICategory } from './dbObjects/blogObjects';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,13 @@ export class DataService {
 
   componentName = this.constructor.name.replace('_', '');
   // baseURL: string = '/assets/';
-  baseURL: string = 'http://localhost:8080/blogapi/';
+  // baseURL: string = 'http://localhost:8080/blogapi/';
+  baseURL: string = environment.apiUrl;
+
+
 
   getCategories(): Observable<ICategory[]> {
+    // console.log('baseURL: ' + this.baseURL);
     return this.http
       .get<ICategory[]>(this.baseURL + `categories`)    // (this.baseURL + `categories.json`)
       .pipe(retry(1), catchError(this.handleError));
